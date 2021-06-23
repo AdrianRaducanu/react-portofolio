@@ -4,49 +4,80 @@ import diaphragm from "../img/diaphragm.svg";
 import money from "../img/money.svg";
 import teamwork from "../img/teamwork.svg";
 import home2 from "../img/home2.png";
+import styled from "styled-components";
+import { StyleAbout, StyleDescription, StyleImage } from "../styles";
+
 function ServicesSection() {
   return (
-    <div className="services">
-      <div className="description">
+    <StyleServices>
+      <StyleDescription>
         <h2>
           High <span> quality </span> services
         </h2>
-        <div className="cards">
-          <div className="card">
+        <StyleCards>
+          <StyleCard>
             <div className="icon">
               <img alt="icon" src={clock}></img>
               <h3>Efficient</h3>
             </div>
             <p>bla bla bla bla blabala</p>
-          </div>
-          <div className="card">
+          </StyleCard>
+          <StyleCard>
             <div className="icon">
               <img alt="icon" src={teamwork}></img>
               <h3>Teamwork</h3>
             </div>
             <p>bla bla bla bla blabala</p>
-          </div>
-          <div className="card">
+          </StyleCard>
+          <StyleCard>
             <div className="icon">
               <img alt="icon" src={diaphragm}></img>
               <h3>Diaphragm</h3>
             </div>
             <p>bla bla bla bla blabala</p>
-          </div>
-          <div className="card">
+          </StyleCard>
+          <StyleCard>
             <div className="icon">
               <img alt="icon" src={money}></img>
               <h3>Affordable</h3>
             </div>
             <p>bla bla bla bla blabala</p>
-          </div>
-        </div>
-      </div>
-      <div className="image">
+          </StyleCard>
+        </StyleCards>
+      </StyleDescription>
+      <StyleImage>
         <img alt="camera" src={home2}></img>
-      </div>
-    </div>
+      </StyleImage>
+    </StyleServices>
   );
 }
+
+//doresc sa modfici putin designul partii de About din aceasta componenta
+const StyleServices = styled(StyleAbout)`
+  h2 {
+    padding-bottom: 5rem;
+  }
+  p {
+    width: 70%;
+    padding: 2rem 0rem 4rem 0rem;
+  }
+`;
+const StyleCards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+const StyleCard = styled.div`
+  flex-basis: 20rem;
+  .icon {
+    display: flex;
+    align-items: center;
+  }
+  h3 {
+    margin-left: 1rem;
+    background: white;
+    color: black;
+    padding: 1rem;
+  }
+`;
 
 export default ServicesSection;

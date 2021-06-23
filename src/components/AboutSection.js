@@ -1,7 +1,6 @@
 import React from "react";
 import home1 from "../img/home1.png";
-import styled from "styled-components";
-
+import { StyleAbout, StyleDescription, StyleHide, StyleImage } from "../styles";
 function AboutSection() {
   return (
     <StyleAbout>
@@ -29,32 +28,4 @@ function AboutSection() {
   );
 }
 
-//styled components
-const StyleAbout = styled.div`
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5rem 10rem;
-  color: white;
-`;
-const StyleDescription = styled.div`
-  flex: 1;
-  padding-right: 5rem;
-  h2 {
-    font-weight: lighter;
-  }
-`;
-const StyleImage = styled.div`
-  flex: 1;
-  overflow: hidden;
-  img {
-    width: 100%;
-    height: 80vh;
-    object-fit: cover;
-  }
-`;
-const StyleHide = styled.div`
-  overflow: hidden;
-`;
 export default AboutSection;
