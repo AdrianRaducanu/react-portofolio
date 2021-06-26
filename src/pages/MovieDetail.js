@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { MovieState } from "../movieState";
 //useHistory ofera informatii despre ruta la care ne aflam, ca de exemplu adresa URL
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
+
 function MovieDetail() {
   const history = useHistory();
   const url = history.location.pathname;
@@ -18,7 +21,12 @@ function MovieDetail() {
   return (
     <>
       {movie && (
-        <StyleDetails>
+        <StyleDetails
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+          exit="exit"
+        >
           <StyleHeadline>
             <h2>{movie[0].title}</h2>
             <img src={movie[0].mainImg} alt="movieImg"></img>
@@ -41,7 +49,7 @@ function MovieDetail() {
   );
 }
 
-const StyleDetails = styled.div`
+const StyleDetails = styled(motion.div)`
   color: white;
 `;
 
