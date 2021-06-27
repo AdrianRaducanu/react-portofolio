@@ -3,6 +3,7 @@ import home1 from "../img/home1.png";
 import { StyleAbout, StyleDescription, StyleHide, StyleImage } from "../styles";
 import { motion } from "framer-motion";
 import { titleAnimation, fade, imgAnimation } from "../animation";
+import Wave from "./Wave";
 
 function AboutSection() {
   return (
@@ -33,6 +34,7 @@ function AboutSection() {
           alt="guy with camera"
         ></motion.img>
       </StyleImage>
+      <Wave />
     </StyleAbout>
   );
 }
