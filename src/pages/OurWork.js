@@ -5,7 +5,14 @@ import athlete from "../img/athlete-small.png";
 import theracer from "../img/theracer-small.png";
 import goodtimes from "../img/goodtimes-small.png";
 import { motion } from "framer-motion";
-import { pageAnimation } from "../animation";
+import {
+  pageAnimation,
+  fade,
+  imgAnimation,
+  lineAnimation,
+  slider,
+  sliderContainer,
+} from "../animation";
 
 function OurWork() {
   return (
@@ -16,11 +23,24 @@ function OurWork() {
       animate="show"
       exit="exit"
     >
+      <motion.div variants={sliderContainer}>
+        <StyleFrame1 variants={slider}></StyleFrame1>
+        <StyleFrame2 variants={slider}></StyleFrame2>
+        <StyleFrame3 variants={slider}></StyleFrame3>
+        <StyleFrame4 variants={slider}></StyleFrame4>
+      </motion.div>
+
       <StyleMovie>
-        <h2>The Athelete</h2>
-        <div className="line"></div>
+        <motion.h2 variants={fade}>The Athelete</motion.h2>
+        <motion.div variants={lineAnimation} className="line"></motion.div>
         <Link to="/work/the-athlete">
-          <img src={athlete} alt="athlete"></img>
+          <StyleHide>
+            <motion.img
+              variants={imgAnimation}
+              src={athlete}
+              alt="athlete"
+            ></motion.img>
+          </StyleHide>
         </Link>
       </StyleMovie>
       <StyleMovie>
@@ -53,7 +73,7 @@ const StyleMovie = styled.div`
   padding-bottom: 10rem;
   .line {
     height: 0.3rem;
-    background: #cccccc;
+    background: #23d997;
     margin-bottom: 3rem;
   }
   img {
@@ -61,6 +81,28 @@ const StyleMovie = styled.div`
     height: 70vh;
     object-fit: cover;
   }
+`;
+const StyleHide = styled.div`
+  overflow: hidden;
+`;
+
+const StyleFrame1 = styled(motion.div)`
+  position: fixed;
+  left: 0;
+  top: 10%;
+  width: 100%;
+  height: 100vh;
+  background: #fffebf;
+  z-index: 2;
+`;
+const StyleFrame2 = styled(StyleFrame1)`
+  background: #ff8efb;
+`;
+const StyleFrame3 = styled(StyleFrame1)`
+  background: #8ed2ff;
+`;
+const StyleFrame4 = styled(StyleFrame1)`
+  background: #8effa0;
 `;
 
 export default OurWork;
