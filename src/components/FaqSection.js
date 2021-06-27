@@ -4,10 +4,13 @@ import { StyleAbout } from "../styles";
 import Toggle from "../components/Toggle";
 import { AnimateSharedLayout } from "framer-motion";
 //pentur a folosi aceasta componenta, wrap-uim codul care se doreste a avea animatie, fiind incapsulat NEAPARAT de un motion.div ce contine "layout" --> in cazul nostru, acest motion div este in Toggle.js
+import { useScroll } from "./useScroll";
+import { fade } from "../animation";
 
 function FaqSection() {
+  const [element, controls] = useScroll();
   return (
-    <Faq>
+    <Faq variants={fade} ref={element} animate={controls} initial="hidden">
       <h2>
         Any Questions <span>FAQ</span>
       </h2>

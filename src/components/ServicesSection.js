@@ -6,10 +6,19 @@ import teamwork from "../img/teamwork.svg";
 import home2 from "../img/home2.png";
 import styled from "styled-components";
 import { StyleAbout, StyleDescription, StyleImage } from "../styles";
+//urmatoarele doua le folosim pt animatie la scroll
+import { fade } from "../animation";
+import { useScroll } from "./useScroll";
 
 function ServicesSection() {
+  const [element, controls] = useScroll();
   return (
-    <StyleServices>
+    <StyleServices
+      variants={fade}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
       <StyleDescription>
         <h2>
           High <span> quality </span> services
