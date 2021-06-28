@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+
 //Link il folosesc pentru a schimba adresa URL, adica din http.../main -> http.../main/ourWork
 function Nav() {
+  const location = useLocation();
+  console.log(location);
   return (
     <StyleNav>
       <h1>
@@ -13,12 +18,29 @@ function Nav() {
       <ul>
         <li>
           <Link to="/">1. About Us</Link>
+          <StyleLine
+            transition={{ duration: 0.75 }}
+            initial={{ width: "1%" }}
+            animate={{ width: location.pathname === "/" ? "50%" : "1%" }}
+          ></StyleLine>
         </li>
         <li>
           <Link to="/work">2. Our work</Link>
+          <StyleLine
+            transition={{ duration: 0.75 }}
+            initial={{ width: "1%" }}
+            animate={{
+              width: location.pathname.startsWith("/work") ? "50%" : "1%",
+            }}
+          ></StyleLine>
         </li>
         <li>
           <Link to="/contact">3. Contact Us</Link>
+          <StyleLine
+            transition={{ duration: 0.75 }}
+            initial={{ width: "1%" }}
+            animate={{ width: location.pathname === "/contact" ? "50%" : "1%" }}
+          ></StyleLine>
         </li>
       </ul>
     </StyleNav>
@@ -50,5 +72,13 @@ const StyleNav = styled.nav`
     padding-left: 10rem;
     position: relative;
   }
+`;
+const StyleLine = styled(motion.div)`
+  height: 0.1rem;
+  background: #23d997;
+  width: 0%;
+  position: absolute;
+  bottom: -80%;
+  left: 60%;
 `;
 export default Nav;
