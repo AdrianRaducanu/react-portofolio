@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import ContactUs from "./pages/ContactUs";
 import OurWork from "./pages/OurWork";
 import MovieDetail from "./pages/MovieDetail";
+import ScrollTop from "./components/scrollTop";
 //Pentru schimbul intre pagini
 import { Switch, Route, useLocation } from "react-router-dom";
 //Pentru animatii -> observa cand o componenta e schimbata pt a anima procesul de iesire
@@ -34,6 +35,7 @@ function App() {
           </Route>
         </Switch>
       </AnimatePresence>
+      <ScrollTop />
     </div>
   );
 }
